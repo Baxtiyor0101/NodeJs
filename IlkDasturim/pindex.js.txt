@@ -1,0 +1,45 @@
+const fs = require("fs");
+
+// console.log(
+//   fs.readdir("../..//kl;kl;k;lkj;lkj;lkjljlklklkl///", function (err, files) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(files);
+//     }
+//   })
+// );
+
+// console.log(
+//   fs.readFile("./index.js", "utf8", function (err, fileContent) {
+//     if (err) {
+//       throw err;
+//     }
+//     // console.log(err);
+//     console.log(fileContent);
+//   })
+// );
+
+// console.log(fs.writeFile());
+
+// let data = "this is the best data for writefilr in node js for me ";
+// let writtnnnn = fs.writeFile("./index.js", data, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("the file written successifully");
+//     console.log("the written succes has the following contents");
+//     console.log(fs.readFileSync("nodes.txt", "utf8"));
+//   }
+// });
+
+// console.log(writtnnnn);
+
+// import { rename } from 'fs';
+
+let renames = fs.rename("./index.js", "pindex.js.txt", (err) => {
+  if (err) throw err;
+  console.log("Rename complete!");
+});
+
+console.log(renames);

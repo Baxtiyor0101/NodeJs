@@ -1,0 +1,1 @@
+bu yerda muhum malumot keltirlgan ehtiyot boling ochirib yubormang 
