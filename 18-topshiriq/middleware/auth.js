@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("config");
+// const config = require("config");
 
 module.exports = function auth(req, res, next) {
   const token = req.header("x-auth-token");
@@ -9,7 +9,7 @@ module.exports = function auth(req, res, next) {
       .send("Token bo'lmaganligi sababli murojaat rad etildi");
 
   try {
-    const decoded = jwt.verify(token, config.get("jwtPrivateKey"));
+    const decoded = jwt.verify(token, "mukssbjm9722");
     req.user = decoded;
     next();
   } catch (ex) {
