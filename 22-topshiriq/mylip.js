@@ -7,3 +7,8 @@ module.exports.absalute = function (number) {
 module.exports.salom = function (name) {
   return "Assalomu alaykum hammaga, " + name;
 };
+
+// Qatorlarni test qilish
+module.exports.getCurrencies = function () {
+  return ["UZS", "MYR", "TRY"];
+};

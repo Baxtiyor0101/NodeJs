@@ -23,3 +23,25 @@ describe("salom", () => {
     expect(result).toMatch(/Baxtiyor/);
   });
 });
+
+describe("getCurrencies", () => {
+  it("should return default  currencies", () => {
+    const result = mylip.getCurrencies();
+
+    //ota umumiy
+    expect(result).toBeDefined();
+    expect(result).not.toBeNull();
+
+    // o'ta aniq bo'lgan test
+    expect(result[0]).toBe("UZS");
+    expect(result[1]).toBe("MYR");
+    expect(result[2]).toBe("TRY");
+    expect(result.length).toBe(3);
+
+    //to'g'ri yozilga test
+    expect(result).toContain("UZS");
+    expect(result).toContain("TRY");
+    expect(result).toContain("MYR");
+    expect(result).toEqual(expect.arrayContaining(["MYR", "UZS", "TRY"]));
+  });
+});
