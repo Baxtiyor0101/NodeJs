@@ -17,3 +17,11 @@ module.exports.getCurrencies = function () {
 module.exports.getProduct = function (productid) {
   return { id: productid, title: "banana", price: 2 };
 };
+
+// Xatolarni test qilish
+module.exports.registeruser = function (userName) {
+  if (!userName) {
+    throw new Error("userName is requared please enter your userName");
+  }
+  return { id: 11, userName: userName };
+};

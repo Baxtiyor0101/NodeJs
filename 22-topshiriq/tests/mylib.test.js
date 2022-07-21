@@ -55,3 +55,21 @@ describe("getProduct", () => {
     expect(result).toHaveProperty("price", 2);
   });
 });
+
+describe("registeruser", () => {
+  it("should throw error if username id falsy", () => {
+    //null undefined notANumber 0 '' false, nan
+    const falsyItems = [null, undefined, 0, "", false, NaN];
+    falsyItems.forEach((fi) => {
+      expect(() => {
+        mylip.registeruser(fi);
+      }).toThrow();
+    });
+  });
+
+  it("should return a user object if value username is passed", () => {
+    const user = mylip.registeruser("admin");
+    expect(user).toMatchObject({ userName: "admin" });
+    expect(user.id).toBeGreaterThan(0);
+  });
+});
