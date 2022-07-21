@@ -12,3 +12,8 @@ module.exports.salom = function (name) {
 module.exports.getCurrencies = function () {
   return ["UZS", "MYR", "TRY"];
 };
+
+//Objectlarni test qilish
+module.exports.getProduct = function (productid) {
+  return { id: productid, title: "banana", price: 2 };
+};
