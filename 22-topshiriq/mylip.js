@@ -1,3 +1,5 @@
+const db = require("./db");
+
 // sonlarni test qilish -- mutlaq qiymatini topish kk
 module.exports.absalute = function (number) {
   return number >= 0 ? number : -number;
@@ -24,4 +26,12 @@ module.exports.registeruser = function (userName) {
     throw new Error("userName is requared please enter your userName");
   }
   return { id: 11, userName: userName };
+};
+
+// mock functionlarni test qilish
+module.exports.applyDiscount = function (order) {
+  const customer = db.getCustomer(order.customerId);
+  if (customer.points > 100) {
+    order.totalPrice = order.price - order.price * 0.1;
+  }
 };

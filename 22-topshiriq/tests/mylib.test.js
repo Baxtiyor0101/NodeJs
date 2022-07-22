@@ -1,3 +1,4 @@
+const db = require("../db");
 const mylip = require("../mylip");
 describe("absolute", () => {
   it(" should return a positive number ifinput is positive", () => {
@@ -71,5 +72,29 @@ describe("registeruser", () => {
     const user = mylip.registeruser("admin");
     expect(user).toMatchObject({ userName: "admin" });
     expect(user.id).toBeGreaterThan(0);
+  });
+});
+
+describe("applyDiscount", () => {
+  it("should apply 10% discount if customer has more than 100 points", () => {
+    db.getCustomer = function (customerId) {
+      console.log("mijozni olishni mock qildik");
+      return { id: customerId, points: 101 };
+    };
+
+    const order = { customerId: 7, price: 100, totalPrice: 100 };
+    mylip.applyDiscount(order);
+    expect(order.totalPrice).toBe(90);
+  });
+
+  it("should not apply any discount if customer has less than 100 points", () => {
+    db.getCustomer = function (customerId) {
+      console.log("mijozni olishni mock qildik");
+      return { id: customerId, points: 55 };
+    };
+
+    const order = { customerId: 7, price: 100, totalPrice: 100 };
+    mylip.applyDiscount(order);
+    expect(order.totalPrice).toBe(100);
   });
 });
